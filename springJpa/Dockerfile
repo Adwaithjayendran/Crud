@@ -1,9 +1,15 @@
-FROM openjdk:21-jdk
+FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+COPY mvnw .
+COPY .mvn .mvn
+COPY pom.xml .
+COPY src src
+
+RUN chmod +x mvnw
+RUN ./mvnw -q -DskipTests package
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "target/*.jar"]
