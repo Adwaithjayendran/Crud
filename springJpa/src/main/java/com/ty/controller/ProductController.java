@@ -29,7 +29,7 @@ public class ProductController {
 
     
 	
-	@GetMapping("/save")
+	@PostMapping("/save")
 	public ResponseEntity<ResponseStructure<Product>> save(@RequestBody Product p) {
 		Product save = service.save(p);
 		ResponseStructure<Product> resp=new ResponseStructure<>();
