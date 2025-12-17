@@ -19,6 +19,7 @@ import com.ty.entity.Product;
 import com.ty.repository.ProductRepository;
 import com.ty.service.ProductService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/product")
 public class ProductController {
